@@ -63,6 +63,7 @@ class MainScreen(Screen):
             )
         self.dialog.open()
 
+
     #Funkcja do tworzenia folderów ze słowami
     def add_folder(self, *args):
         customwidget = CustomWidget()
@@ -70,11 +71,14 @@ class MainScreen(Screen):
         content = self.dialog.content_cls
         text_field = content.ids.text_field
 
-        custom_button = customwidget.ids.custom_button
-        custom_button.text = text_field.text
+        if len(text_field.text) > 13 or len(text_field.text) == 0: #zablokowanie zbyt dużej ilości znakó
+            text_field.hint_text = "Wprowadź nazwę"
+        else:
+            custom_button = customwidget.ids.custom_button
+            custom_button.text = text_field.text
 
-        self.ids.my_container.add_widget(customwidget)
-        self.dialog.dismiss()
+            self.ids.my_container.add_widget(customwidget)
+            self.dialog.dismiss()
 
     def close_popup(self, *args):
         self.dialog.dismiss()

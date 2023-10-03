@@ -356,6 +356,11 @@ ScreenManager:
         id: text_field
         hint_text: "Podaj nazwę folderu"
         pos_hint: {"center_x": 0.5, "center_y": 0.5}
+        multiline: True
+        max_text_length: 13  # Ustaw maksymalną liczbę znaków, którą chcesz obsłużyć.
+
+
+        
         
     
 """
