@@ -266,12 +266,17 @@ ScreenManager:
                         on_press: app.root.get_screen('main').change()
                         font_size: "20dp"
 
-                    MDRaisedButton:
-                        text: "Umiem"
-                        md_bg_color: app.theme_cls.primary_color
-                        pos_hint: {"center_x": 0.5, "center_y": 0.20}
-                        size_hint: 0.6, 0.1
-                        font_size: "18dp"
+                    MDIconButton:
+                        icon: 'thumb-up'
+                        pos_hint: {"center_x": 0.350, "center_y": 0.22}
+                        size_hint: 0.25, 0.1
+                        md_bg_color: 1, 0, 0, 1
+
+                    MDIconButton:
+                        icon: 'thumb-down'
+                        pos_hint: {"center_x": 0.650, "center_y": 0.22}
+                        size_hint: 0.25, 0.1
+                        md_bg_color: 0, 1, 0, 1
                         
 
             MDBottomNavigationItem:
