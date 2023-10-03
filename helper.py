@@ -267,13 +267,13 @@ ScreenManager:
                         font_size: "20dp"
 
                     MDIconButton:
-                        icon: 'thumb-up'
+                        icon: 'thumb-down'
                         pos_hint: {"center_x": 0.350, "center_y": 0.22}
                         size_hint: 0.25, 0.1
                         md_bg_color: 1, 0, 0, 1
 
                     MDIconButton:
-                        icon: 'thumb-down'
+                        icon: 'thumb-up'
                         pos_hint: {"center_x": 0.650, "center_y": 0.22}
                         size_hint: 0.25, 0.1
                         md_bg_color: 0, 1, 0, 1
