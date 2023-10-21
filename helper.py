@@ -23,10 +23,12 @@ ScreenManager:
         icon: "play"
         pos_hint: {"center_x": .5, "center_y": 0.2}
         on_press: root.manager.current = 'login'
+        theme_text_color: 'Hint'
 
 <LoginScreen>:
     name: 'login'
     Screen:
+        md_bg_color: app.theme_cls.bg_light
         MDLabel :
             text : 'LOGIN'
             font_size: '48dp'
@@ -84,12 +86,14 @@ ScreenManager:
                 size_hint_x: 1
                 md_bg_color: app.theme_cls.primary_color
                 on_press: root.manager.current = 'main'
+                theme_text_color: 'Hint'
             MDFlatButton:
                 text: 'SIGN UP'
                 font_size: "22dp"
                 size_hint_x: 1
                 md_bg_color: app.theme_cls.primary_color
                 on_press: root.manager.current = 'registration'
+                theme_text_color: 'Hint'
 
 <Registration>:
     name: 'registration'
@@ -145,12 +149,14 @@ ScreenManager:
                 size_hint_x: 1
                 md_bg_color: app.theme_cls.primary_color
                 on_press: root.manager.current = 'login'
+                theme_text_color: 'Hint'
             MDFlatButton:
                 text: 'BACK'
                 font_size: "22dp"
                 size_hint_x: 1
                 md_bg_color: app.theme_cls.primary_color
                 on_press: root.manager.current = 'login'
+                theme_text_color: 'Hint'
 
 <MainScreen>:
     name: 'main'
@@ -191,6 +197,7 @@ ScreenManager:
                                 spacing: "30dp"
                                 padding: "30dp"
                                 font_size: "20dp"
+                                theme_text_color: 'Hint'
                             MDFillRoundFlatIconButton:
                                 icon: 'folder'
                                 size_hint: 0.9, None
@@ -201,6 +208,7 @@ ScreenManager:
                                 spacing: "30dp"
                                 padding: "30dp"
                                 font_size: "20dp"
+                                theme_text_color: 'Hint'
                             MDFillRoundFlatIconButton:
                                 icon: 'folder'
                                 size_hint: 0.9, None
@@ -211,6 +219,7 @@ ScreenManager:
                                 spacing: "30dp"
                                 padding: "30dp"
                                 font_size: "20dp"
+                                theme_text_color: 'Hint'
                             MDFillRoundFlatIconButton:
                                 icon: 'folder'
                                 size_hint: 0.9, None
@@ -221,7 +230,9 @@ ScreenManager:
                                 spacing: "30dp"
                                 padding: "30dp"
                                 font_size: "20dp"
+                                theme_text_color: 'Hint'
             
+                                
             MDBottomNavigationItem:
                 name: 'screen 2'
                 text: 'Folder'
@@ -243,7 +254,7 @@ ScreenManager:
                             spacing: "53dp"
                             padding: "30dp"
                             height: self.minimum_height
-                            
+                      
 
             MDBottomNavigationItem:
                 name: 'screen 3'
@@ -263,21 +274,16 @@ ScreenManager:
                         md_bg_color: app.theme_cls.primary_color
                         pos_hint: {"center_x": 0.5, "center_y": 0.45}
                         size_hint: 0.6, 0.3
-                        on_press: app.root.get_screen('main').change()
                         font_size: "20dp"
-
-                    MDIconButton:
-                        icon: 'thumb-down'
-                        pos_hint: {"center_x": 0.350, "center_y": 0.22}
-                        size_hint: 0.25, 0.1
-                        md_bg_color: 1, 0, 0, 1
+                        theme_text_color: 'Hint'
 
                     MDIconButton:
                         icon: 'thumb-up'
-                        pos_hint: {"center_x": 0.650, "center_y": 0.22}
-                        size_hint: 0.25, 0.1
+                        pos_hint: {"center_x": 0.5, "center_y": 0.22}
+                        size_hint: 0.5, 0.1
                         md_bg_color: 0, 1, 0, 1
-                        
+                        on_release: app.root.get_screen('main').change()
+                                
 
             MDBottomNavigationItem:
                 name: 'screen 4'
@@ -295,6 +301,7 @@ ScreenManager:
                         icon: "account"
                         icon_size: "64dp"
                         pos_hint: {"center_x": 0.5, "center_y": 0.6}
+                        theme_text_color: 'Hint'
 
                     MDRaisedButton:
                         text: "Ustawienia"
@@ -303,6 +310,7 @@ ScreenManager:
                         size_hint: 0.7, 0.1
                         font_size: "18dp"
                         on_press: root.manager.current = 'settings'
+                        theme_text_color: 'Hint'
 
 <SettingsScreen>:
     name: 'settings'
@@ -318,22 +326,27 @@ ScreenManager:
             text: "Zmień hasło"
             size_hint: 1, 0.1
             pos_hint: {"top": 0.5}
+            theme_text_color: 'Hint'
         MDRaisedButton:
             text: "O Fiszki"
             size_hint: 1, 0.1
             pos_hint: {"top": 0.4}
+            theme_text_color: 'Hint'
         MDRaisedButton:
             text: "Ustaw motyw"
             size_hint: 1, 0.1
             pos_hint: {"top": 0.3}
+            theme_text_color: 'Hint'
         MDRaisedButton:
             text: "Usuń konto"
             size_hint: 1, 0.1
             pos_hint: {"top": 0.2}
+            theme_text_color: 'Hint'
         MDRaisedButton:
             text: "Wyloguj się"
             size_hint: 1, 0.1
             pos_hint: {"top": 0.1}
+            theme_text_color: 'Hint'
 
 <CustomWidget>:    
     MDFillRoundFlatIconButton:
@@ -346,6 +359,7 @@ ScreenManager:
         spacing: "30dp"
         padding: "30dp"
         font_size: "20dp" 
+        theme_text_color: 'Hint'
 
 <Content>:
     orientation: "vertical"

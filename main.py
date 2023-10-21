@@ -32,16 +32,17 @@ class DemoApp(MDApp):
 
     def build(self):
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "Purple"
+        self.theme_cls.primary_palette = "Green"
         screen = Builder.load_string(screen_helper)
         return screen
 
     #Łączenie wszystkich funkcji z funkcją build
-    def on_add_folder_button_press(self):
+    def main_screen_function(self):
         main_screen = self.root.get_screen('main')
         main_screen.add_folder(self)
         main_screen.show_popup()
         main_screen.change()
+
 
     #Powrót do MainScreen z sekcji ustawień
     def change_screen(self, screen_name):
