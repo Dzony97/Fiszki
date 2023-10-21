@@ -1,4 +1,3 @@
-
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDFlatButton
@@ -36,7 +35,6 @@ class MainScreen(Screen):
             )
         self.dialog.open()
 
-
     #Funkcja do tworzenia folderów ze słowami
     def add_folder(self, *args):
         customwidget = CustomWidget()
@@ -44,8 +42,10 @@ class MainScreen(Screen):
         content = self.dialog.content_cls
         text_field = content.ids.text_field
 
-        if len(text_field.text) > 13 or len(text_field.text) == 0: #zablokowanie zbyt dużej ilości znakó
-            text_field.hint_text = "Wprowadź nazwę"
+        if len(text_field.text) == 0: #zablokowanie zbyt dużej ilości znakó
+            text_field.hint_text = "Wprowadź nazwę!"
+        elif len(text_field.text) > 13:
+            text_field.hint_text = "Za dużo znaków!"
         else:
             custom_button = customwidget.ids.custom_button
             custom_button.text = text_field.text
@@ -53,30 +53,20 @@ class MainScreen(Screen):
             self.ids.my_container.add_widget(customwidget)
             self.dialog.dismiss()
 
-    def close_popup(self, *args):
-        self.dialog.dismiss()
+    def close_popup(self, dialog):
+        self.dialog = self.dialog.dismiss()
 
-    # Tłumaczenie naszego wyrazu w screen random
-    def change(self, *args):
+    def change(self):
+        # Wybieranie nowego losowego słowa
+        self.ids.random.text = self.random_word()
 
-        random_button = self.ids.random
-
-        if self.button_state:
-            random_button.md_bg_color = [0, 0, 1, 1]  
-            random_button.text = "test"
-        else:
-            random_button.md_bg_color = [1, 0, 0, 1]  
-            random_button.text = (self.random)
-
-        self.button_state = not self.button_state
-
-    def random_word():
+    def random_word(self):
         with open('random.txt', 'r') as file:  
             slowa = file.read().split(',')
             slowo = random.choice(slowa)
             return slowo.strip()
         
-    random = random_word()
+        
 
 class Content(MDBoxLayout):
     pass
@@ -89,3 +79,4 @@ class CustomWidget(MDBoxLayout):
         super(CustomWidget, self).__init__(**kwargs)
         self.size_hint_y = None  
         self.height = "48dp"
+
