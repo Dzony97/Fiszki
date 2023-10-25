@@ -9,6 +9,7 @@ ScreenManager:
     Registration:
     MainScreen:
     SettingsScreen:
+    LearnScreen:
 
 <WelcomeScreen>:
     name: 'welcome'
@@ -198,6 +199,7 @@ ScreenManager:
                                 padding: "30dp"
                                 font_size: "20dp"
                                 theme_text_color: 'Hint'
+                                on_press: root.manager.current = 'learn'
                             MDFillRoundFlatIconButton:
                                 icon: 'folder'
                                 size_hint: 0.9, None
@@ -209,6 +211,7 @@ ScreenManager:
                                 padding: "30dp"
                                 font_size: "20dp"
                                 theme_text_color: 'Hint'
+                                on_press: root.manager.current = 'learn'
                             MDFillRoundFlatIconButton:
                                 icon: 'folder'
                                 size_hint: 0.9, None
@@ -220,6 +223,7 @@ ScreenManager:
                                 padding: "30dp"
                                 font_size: "20dp"
                                 theme_text_color: 'Hint'
+                                on_press: root.manager.current = 'learn'
                             MDFillRoundFlatIconButton:
                                 icon: 'folder'
                                 size_hint: 0.9, None
@@ -231,6 +235,7 @@ ScreenManager:
                                 padding: "30dp"
                                 font_size: "20dp"
                                 theme_text_color: 'Hint'
+                                on_press: root.manager.current = 'learn'
             
                                 
             MDBottomNavigationItem:
@@ -271,11 +276,12 @@ ScreenManager:
                     MDRaisedButton:
                         id: random
                         text: "Losuj"
-                        md_bg_color: app.theme_cls.primary_color
+                        md_bg_color: 0, 1, 1, 1
                         pos_hint: {"center_x": 0.5, "center_y": 0.45}
                         size_hint: 0.6, 0.3
                         font_size: "20dp"
-                        theme_text_color: 'Hint'
+                        theme_text_color: 'Error'
+                        on_release: app.root.get_screen('main').translate()
 
                     MDIconButton:
                         icon: 'thumb-up'
@@ -337,6 +343,7 @@ ScreenManager:
             size_hint: 1, 0.1
             pos_hint: {"top": 0.3}
             theme_text_color: 'Hint'
+            on_press: app.lightdark()
         MDRaisedButton:
             text: "Usuń konto"
             size_hint: 1, 0.1
@@ -347,6 +354,32 @@ ScreenManager:
             size_hint: 1, 0.1
             pos_hint: {"top": 0.1}
             theme_text_color: 'Hint'
+
+<LearnScreen>:    
+    name: 'learn'
+
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            title: ''
+            left_action_items: [["arrow-left", lambda x: app.change_screen('main')]]
+
+        ScrollView:
+            pos_hint: {"top": 0.85}
+            MDBoxLayout:
+                orientation: 'vertical'
+                height: self.minimum_height
+                MDRaisedButton:
+                    text: "MDRaisedButton"
+                    md_bg_color: "red"
+                MDRaisedButton:
+                    text: "MDRaisedButton"
+                    md_bg_color: "red"
+                MDRaisedButton:
+                    text: "MDRaisedButton"
+                    md_bg_color: "red"
+                    size_hint: 0.8, 0.4
 
 <CustomWidget>:    
     MDFillRoundFlatIconButton:
@@ -373,8 +406,4 @@ ScreenManager:
         multiline: True
         max_text_length: 13  # Ustaw maksymalną liczbę znaków, którą chcesz obsłużyć.
 
-
-        
-        
-    
 """
