@@ -4,6 +4,7 @@ from kivymd.uix.button import MDFlatButton
 from kivymd.uix.dialog import MDDialog
 
 import random
+from translator import translate_text
 
 class MainScreen(Screen):
 
@@ -59,14 +60,30 @@ class MainScreen(Screen):
     def change(self):
         # Wybieranie nowego losowego słowa
         self.ids.random.text = self.random_word()
+        self.word = self.ids.random.text
+        self.ids.random.md_bg_color = 0, 1, 1, 1
+        self.flag = True
+
+    #Tlumaczenie w random
+    def translate(self):
+    
+        if self.flag:
+            self.ids.random.text = translate_text(self.ids.random.text, 'PL')
+            self.ids.random.md_bg_color = 1, 0, 1, 1
+            self.flag = False
+        else:
+            self.ids.random.text = self.word
+            self.ids.random.md_bg_color = 0, 1, 1, 1
+            self.flag = True
 
     def random_word(self):
-        with open('random.txt', 'r') as file:  
+        with open('words/random.txt', 'r') as file:  
             slowa = file.read().split(',')
             slowo = random.choice(slowa)
             return slowo.strip()
-        
-        
+              
+class LearnScreen(Screen):
+    pass
 
 class Content(MDBoxLayout):
     pass

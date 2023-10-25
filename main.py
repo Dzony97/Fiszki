@@ -4,7 +4,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 
 from helper import screen_helper
-from mainscreen import MainScreen
+from mainscreen import MainScreen, LearnScreen
 
 Window.size = (300, 500)
 
@@ -27,6 +27,7 @@ sm.add_widget(LoginScreen(name='login'))
 sm.add_widget(Registration(name='registration'))
 sm.add_widget(MainScreen(name='main'))
 sm.add_widget(SettingsScreen(name='settings'))
+sm.add_widget(LearnScreen(name='learn'))
 
 class DemoApp(MDApp):
 
@@ -42,11 +43,23 @@ class DemoApp(MDApp):
         main_screen.add_folder(self)
         main_screen.show_popup()
         main_screen.change()
+        main_screen.translate()
 
+    #Wywolanie funkcji change przy starcie aplikacji
+    def on_start(self):
+        self.root.get_screen('main').change()
 
     #Powrót do MainScreen z sekcji ustawień
     def change_screen(self, screen_name):
         self.root.current = screen_name
 
-if __name__ == "__main__":
+    #zmiana motywu 
+    def lightdark(self):
+        if self.theme_cls.theme_style == "Light":
+            self.theme_cls.theme_style = "Dark"
+        else:
+            self.theme_cls.theme_style = "Light"
+
+
+if __name__ == "__main__":  
     DemoApp().run()
