@@ -4,7 +4,8 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 
 from helper import screen_helper
-from mainscreen import MainScreen, LearnScreen
+from mainscreen import MainScreen
+from learn import LearnScreen
 
 Window.size = (300, 500)
 
@@ -44,6 +45,10 @@ class DemoApp(MDApp):
         main_screen.show_popup()
         main_screen.change()
         main_screen.translate()
+        learn_screen = self.root.get_screen('learn')
+        learn_screen.add_words()
+        learn_screen.toggle_text()
+        learn_screen.clear_word_container()
 
     #Wywolanie funkcji change przy starcie aplikacji
     def on_start(self):
@@ -59,6 +64,11 @@ class DemoApp(MDApp):
             self.theme_cls.theme_style = "Dark"
         else:
             self.theme_cls.theme_style = "Light"
+
+    #Powrót do main i czyszczenie learn
+    def handle_back_action(self):
+        self.root.get_screen('learn').clear_word_container()
+        self.change_screen('main')
 
 
 if __name__ == "__main__":  
