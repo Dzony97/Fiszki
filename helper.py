@@ -161,6 +161,7 @@ ScreenManager:
 
 <MainScreen>:
     name: 'main'
+
     BoxLayout:
         orientation:'vertical'
         md_bg_color: app.theme_cls.primary_color
@@ -192,50 +193,61 @@ ScreenManager:
                                 icon: 'folder'
                                 size_hint: 0.9, None
                                 height: "48dp"
-                                text: 'TEST'
+                                text: 'Liczby'
                                 halign: 'center'
                                 pos_hint: {"center_x": 0.5}
                                 spacing: "30dp"
                                 padding: "30dp"
                                 font_size: "20dp"
                                 theme_text_color: 'Hint'
-                                on_press: root.manager.current = 'learn'
+                                on_press: 
+                                    app.root.get_screen('learn').add_words('words/numbers.txt', 'words/numbers2.txt')
+                                    root.manager.current = 'learn'
                             MDFillRoundFlatIconButton:
                                 icon: 'folder'
                                 size_hint: 0.9, None
                                 height: "48dp"
-                                text: 'TEST'
+                                text: 'Kolory'
                                 halign: 'center'
                                 pos_hint: {"center_x": 0.5}
                                 spacing: "30dp"
                                 padding: "30dp"
                                 font_size: "20dp"
                                 theme_text_color: 'Hint'
-                                on_press: root.manager.current = 'learn'
+                                on_press: 
+                                    app.root.get_screen('learn').add_words('words/colors.txt', 'words/colors2.txt')
+                                    root.manager.current = 'learn'
                             MDFillRoundFlatIconButton:
                                 icon: 'folder'
                                 size_hint: 0.9, None
                                 height: "48dp"
-                                text: 'TEST'
+                                text: 'Narzędzia'
                                 halign: 'center'
                                 pos_hint: {"center_x": 0.5}
                                 spacing: "30dp"
                                 padding: "30dp"
                                 font_size: "20dp"
                                 theme_text_color: 'Hint'
-                                on_press: root.manager.current = 'learn'
+                                on_press: 
+                                    app.root.get_screen('learn').add_words('words/tools.txt', 'words/tools2.txt')
+                                    root.manager.current = 'learn'
                             MDFillRoundFlatIconButton:
                                 icon: 'folder'
                                 size_hint: 0.9, None
                                 height: "48dp"
-                                text: 'TEST'
+                                text: 'Zwierzęta'
                                 halign: 'center'
                                 pos_hint: {"center_x": 0.5}
                                 spacing: "30dp"
                                 padding: "30dp"
                                 font_size: "20dp"
                                 theme_text_color: 'Hint'
-                                on_press: root.manager.current = 'learn'
+                                on_press: 
+                                    app.root.get_screen('learn').add_words('words/animals.txt', 'words/animals2.txt')
+                                    root.manager.current = 'learn'
+                                    
+                                
+                                    
             
                                 
             MDBottomNavigationItem:
@@ -363,23 +375,28 @@ ScreenManager:
 
         MDTopAppBar:
             title: ''
-            left_action_items: [["arrow-left", lambda x: app.change_screen('main')]]
+            left_action_items: [["arrow-left", lambda x: app.handle_back_action()]]
+            pos_hint: {"center_y": 1}
 
         ScrollView:
-            pos_hint: {"top": 0.85}
-            MDBoxLayout:
-                orientation: 'vertical'
+            GridLayout:
+                cols: 1
+                id: word_container
+                spacing: "15dp"
+                padding: "15dp"
                 height: self.minimum_height
-                MDRaisedButton:
-                    text: "MDRaisedButton"
-                    md_bg_color: "red"
-                MDRaisedButton:
-                    text: "MDRaisedButton"
-                    md_bg_color: "red"
-                MDRaisedButton:
-                    text: "MDRaisedButton"
-                    md_bg_color: "red"
-                    size_hint: 0.8, 0.4
+                size_hint_y: None
+                
+<WordWidget>:
+    MDRaisedButton:
+        id: words
+        text: ""
+        md_bg_color: 0, 1, 1, 1
+        pos_hint: {"center_x": 0.5}
+        size_hint: 0.6, 1
+        font_size: "20dp"
+        theme_text_color: 'Error'
+        on_release: root.toggle_text()
 
 <CustomWidget>:    
     MDFillRoundFlatIconButton:

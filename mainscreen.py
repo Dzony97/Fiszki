@@ -1,9 +1,10 @@
+import random
+
 from kivy.uix.screenmanager import Screen
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivymd.uix.button import MDFlatButton
 from kivymd.uix.dialog import MDDialog
 
-import random
 from translator import translate_text
 
 class MainScreen(Screen):
@@ -81,9 +82,6 @@ class MainScreen(Screen):
             slowa = file.read().split(',')
             slowo = random.choice(slowa)
             return slowo.strip()
-              
-class LearnScreen(Screen):
-    pass
 
 class Content(MDBoxLayout):
     pass
@@ -96,4 +94,12 @@ class CustomWidget(MDBoxLayout):
         super(CustomWidget, self).__init__(**kwargs)
         self.size_hint_y = None  
         self.height = "48dp"
+
+
+
+
+
+
+
+
 
