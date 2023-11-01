@@ -2,7 +2,7 @@ import requests
 import json
 
 def translate_text(text, target_lang):
-    api_key = 'eff154b0-86c4-df24-76fe-4a2304a44b37:fx'
+    api_key = 'TRANSLATOR_KEY'
     url = 'https://api-free.deepl.com/v2/translate'
 
     params = {
