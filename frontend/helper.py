@@ -139,6 +139,7 @@ ScreenManager:
             font_size: "20dp"
             size_hint_x: .85
             pos_hint: {"center_x": 0.5, "center_y": 0.3}
+            password: True
             icon_right : "eye-off"
         BoxLayout:
             orientation: 'vertical'
@@ -151,7 +152,7 @@ ScreenManager:
                 font_size: "22dp"
                 size_hint_x: 1
                 md_bg_color: app.theme_cls.primary_color
-                on_press: root.manager.current = 'login'
+                on_press: root.register_user()
                 theme_text_color: 'Hint'
             MDFlatButton:
                 text: 'BACK'

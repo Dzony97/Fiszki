@@ -6,7 +6,8 @@ from kivy.core.window import Window
 from helper import screen_helper
 from mainscreen import MainScreen
 from learn import LearnScreen, SecondLearnScreen
-from account import Registration
+import requests
+import json
 
 Window.size = (300, 500)
 
@@ -17,7 +18,26 @@ class LoginScreen(Screen):
     pass
 
 class Registration(Screen):
-    pass
+    def register_user(self):
+        username = self.ids.username.text
+        email = self.ids.email.text
+        password = self.ids.password.text
+        repeat_password = self.ids.repeat_password.text
+
+        if password == repeat_password:
+            data = {
+                "username": username,
+                "email": email,
+                "password": password
+            }
+            headers = {'Content-Type': 'application/json'}
+            response = requests.post("http://127.0.0.1:8000/api/register/", data=json.dumps(data), headers=headers)
+            if response.status_code == 201:
+                self.manager.current = 'login'
+            else:
+                print("Registration failed", response.json())
+        else:
+            print("Passwords do not match")
 
 class SettingsScreen(Screen):
     pass
