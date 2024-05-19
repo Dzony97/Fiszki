@@ -108,6 +108,7 @@ ScreenManager:
             text_color: app.theme_cls.primary_color
             pos_hint: {"center_y": 0.9}
         MDTextField:
+            id: username
             hint_text: 'Username'
             font_size: "20dp"
             size_hint_x: .85
@@ -123,7 +124,7 @@ ScreenManager:
             pos_hint: {"center_x": 0.5, "center_y": 0.6}
             icon_right : "email"
         MDTextField:
-            id: psswd
+            id: password
             hint_text: 'Password'
             font_size: "20dp"
             size_hint_x: .85
@@ -133,7 +134,7 @@ ScreenManager:
             on_text: self.text = self.text.replace(" ", "")
             write_tab: False
         MDTextField:
-            id: psswd
+            id: repeat_password
             hint_text: 'Repeat Password'
             font_size: "20dp"
             size_hint_x: .85

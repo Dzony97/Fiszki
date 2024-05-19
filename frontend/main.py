@@ -6,6 +6,7 @@ from kivy.core.window import Window
 from helper import screen_helper
 from mainscreen import MainScreen
 from learn import LearnScreen, SecondLearnScreen
+from account import Registration
 
 Window.size = (300, 500)
 
