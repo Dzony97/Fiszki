@@ -16,6 +16,7 @@ class WelcomeScreen(Screen):
 
 class LoginScreen(Screen):
     pass
+            
 
 class Registration(Screen):
     def register_user(self):

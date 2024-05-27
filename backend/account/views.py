@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import IsAdminUser, AllowAny
 from rest_framework_simplejwt.views import TokenObtainPairView
 
+
 from .serializers import UserSerializer, CustomTokenObtainPairSerializer
 
 
