@@ -15,8 +15,29 @@ class WelcomeScreen(Screen):
     pass
 
 class LoginScreen(Screen):
-    pass
-            
+
+    def login_user(self):
+
+        username = self.ids.userlogin.text
+        password = self.ids.psswd.text
+
+        data = {
+            "username": username,
+            "password": password
+        }
+
+        headers = {'Content-Type': 'application/json'} # send data in format JSON
+        response = requests.post("http://127.0.0.1:8000/api/token/login/", data=json.dumps(data), headers=headers)
+
+        if response.status_code == 200:
+            token_data = response.json()
+            token_access = token_data['access']
+            token_refresh = token_data['refresh']
+            self.manager.current = 'main'
+            print('Success')
+        else:
+            print(f"Login Failed. Status Code: {response.status_code}, Response: {response.text}")
+
 
 class Registration(Screen):
     def register_user(self):
@@ -31,19 +52,19 @@ class Registration(Screen):
                 "email": email,
                 "password": password
             }
-            headers = {'Content-Type': 'application/json'}
+            headers = {'Content-Type': 'application/json'} # send data in format JSON
             response = requests.post("http://127.0.0.1:8000/api/register/", data=json.dumps(data), headers=headers)
             if response.status_code == 201:
                 self.manager.current = 'login'
             else:
-                print("Registration failed", response.json())
+                print(f"Registration failed. Status Code: {response.status_code}, Response: {response.text}")
         else:
             print("Passwords do not match")
 
 class SettingsScreen(Screen):
     pass
 
-#Przełączanie screen
+#Change screen
 sm = ScreenManager()
 sm.add_widget(WelcomeScreen(name='welcome'))
 sm.add_widget(LoginScreen(name='login'))
@@ -61,7 +82,7 @@ class DemoApp(MDApp):
         screen = Builder.load_string(screen_helper)
         return screen
 
-    #Łączenie wszystkich funkcji z funkcją build
+    #Connected all functions with function build
     def main_screen_function(self):
         main_screen = self.root.get_screen('main')
         main_screen.add_folder(self)
@@ -77,22 +98,22 @@ class DemoApp(MDApp):
         second_learn_screen.add_second_words()
         second_learn_screen.second_toggle_text()
 
-    #Wywolanie funkcji change przy starcie aplikacji
+    #Calling the change function at application startup
     def on_start(self):
         self.root.get_screen('main').change()
 
-    #Powrót do MainScreen z sekcji ustawień
+    #Back to MainScreen from settings
     def change_screen(self, screen_name):
         self.root.current = screen_name
 
-    #zmiana motywu 
+    #Change theme
     def lightdark(self):
         if self.theme_cls.theme_style == "Light":
             self.theme_cls.theme_style = "Dark"
         else:
             self.theme_cls.theme_style = "Light"
 
-    #Powrót do main i czyszczenie learn
+    #Back to main from clear learn
     def handle_back_action(self):
         self.root.get_screen('learn').clear_word_container()
         self.change_screen('main')

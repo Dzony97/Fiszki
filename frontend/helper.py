@@ -39,6 +39,7 @@ ScreenManager:
             text_color: app.theme_cls.primary_color
             pos_hint: {"center_y": 0.83}
         MDTextField:
+            id: userlogin
             hint_text: 'Username'
             font_size: "20dp"
             size_hint_x: .85
@@ -87,7 +88,7 @@ ScreenManager:
                 font_size: "22dp"
                 size_hint_x: 1
                 md_bg_color: app.theme_cls.primary_color
-                on_press: root.manager.current = 'main'
+                on_press: root.login_user()
                 theme_text_color: 'Hint'
             MDFlatButton:
                 text: 'SIGN UP'
