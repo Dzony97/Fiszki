@@ -12,7 +12,7 @@ class WordWidget(MDBoxLayout):
         self.word1 = word1
         self.word2 = word2
 
-    #Przelaczanie slow z ang na pl
+    #Converting words from ENG to PL
     def toggle_text(self):
         if self.flag:
             self.ids.words.text = self.word2
@@ -25,7 +25,7 @@ class WordWidget(MDBoxLayout):
 
 class LearnScreen(Screen):
 
-    #Dodawanie przyciskow ze slowami do nauki i ich tluamczenie
+    #Adding buttons with words to learn and translating them
     def add_words(self, file1_name, file2_name):
         word_container = self.ids.word_container
 
@@ -40,7 +40,7 @@ class LearnScreen(Screen):
                 word_widget.ids.words.text = word1
                 word_container.add_widget(word_widget)
 
-    #Czyszczenie ekranu learn
+    #Cleaning screen learn
     def clear_word_container(self):
         word_container = self.ids.word_container
         word_container.clear_widgets()
@@ -73,7 +73,7 @@ class SecondLearnScreen(Screen):
 
     dialog = None
 
-    # Okno popup odpowiadające za tworzenie nowych kart do nauki
+    # Popup window responsible for creating new learning cards
     def show_dialog(self):
         if not self.dialog:
             self.dialog = MDDialog(

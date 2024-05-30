@@ -26,8 +26,8 @@ class LoginScreen(Screen):
             "password": password
         }
 
-        headers = {'Content-Type': 'application/json'} # send data in format JSON
-        response = requests.post("http://127.0.0.1:8000/api/token/login/", data=json.dumps(data), headers=headers)
+        headers = {'Content-Type': 'application/json'} # informs server that the data will be in json format
+        response = requests.post("http://127.0.0.1:8000/api/token/login/", data=json.dumps(data), headers=headers) # send data in format JSON
 
         if response.status_code == 200:
             token_data = response.json()
@@ -52,8 +52,8 @@ class Registration(Screen):
                 "email": email,
                 "password": password
             }
-            headers = {'Content-Type': 'application/json'} # send data in format JSON
-            response = requests.post("http://127.0.0.1:8000/api/register/", data=json.dumps(data), headers=headers)
+            headers = {'Content-Type': 'application/json'} # informs server that the data will be in json format
+            response = requests.post("http://127.0.0.1:8000/api/register/", data=json.dumps(data), headers=headers) # send data in format JSON
             if response.status_code == 201:
                 self.manager.current = 'login'
             else:

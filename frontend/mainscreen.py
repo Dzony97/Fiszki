@@ -15,7 +15,7 @@ class MainScreen(Screen):
 
     dialog = None
     
-    # Okno popup odpowiadające za tworzenie nowych folderów
+    # Popup windows responsible for creating new folders
     def show_popup(self):
         
         if not self.dialog:
@@ -37,14 +37,14 @@ class MainScreen(Screen):
             )
         self.dialog.open()
 
-    #Funkcja do tworzenia folderów ze słowami
+    #Function responsible for creating folder
     def add_folder(self, *args):
         customwidget = CustomWidget()
 
         content = self.dialog.content_cls
         text_field = content.ids.text_field
 
-        if len(text_field.text) == 0: #zablokowanie zbyt dużej ilości znaków
+        if len(text_field.text) == 0:
             text_field.hint_text = "Wprowadź nazwę!"
         elif len(text_field.text) > 13:
             text_field.hint_text = "Za dużo znaków!"
@@ -59,13 +59,13 @@ class MainScreen(Screen):
         self.dialog = self.dialog.dismiss()
 
     def change(self):
-        # Wybieranie nowego losowego słowa
+        # Choose new random word
         self.ids.random.text = self.random_word()
         self.word = self.ids.random.text
         self.ids.random.md_bg_color = 0, 1, 1, 1
         self.flag = True
 
-    #Tlumaczenie w random
+    #Translation in random
     def translate(self):
     
         if self.flag:
@@ -86,7 +86,7 @@ class MainScreen(Screen):
 class Content(MDBoxLayout):
     pass
 
-#Widget z okna popup
+#Widget in popup window
 class CustomWidget(MDBoxLayout):
     text = ""
 

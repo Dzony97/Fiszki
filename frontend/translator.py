@@ -8,7 +8,7 @@ def translate_text(text, target_lang):
     params = {
         'auth_key': api_key,
         'text': text,
-        'target_lang': target_lang
+        'target_lang': target_lang  # The language into which the text should be translated
     }
 
     response = requests.post(url, data=params)
