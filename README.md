@@ -17,3 +17,4 @@ List of main technologies used in the project:
 - **Authentication**: JSON Web Tokens (JWT)
 
 ## Setup
+
