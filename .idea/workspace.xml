@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6c41bf1d-e4c5-495c-8cdd-b6829757306b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Fiszki.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/backend/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/helper.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/learn.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainscreen.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/translator.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/words/animals.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/words/animals2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/words/colors.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/words/colors2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/words/numbers.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/words/numbers2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/words/random.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/words/tools.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/words/tools2.txt" beforeDir="false" />
-    </list>
+    <list default="true" id="6c41bf1d-e4c5-495c-8cdd-b6829757306b" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,5 +77,16 @@
       <updated>1716048915269</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/frontend/main.py</url>
+          <line>44</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
