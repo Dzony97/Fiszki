@@ -59,6 +59,7 @@ To set up the project locally, follow these steps.
 ```python manage.py runserver```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
    
 ## Screen 
 
@@ -82,8 +83,4 @@ To set up the project locally, follow these steps.
   <img src="screen/learn1.png" alt="Add Set" width="400" style="margin-right: 10px;"/>
   <img src="screen/learn2.png" alt="My Sets" width="400" style="margin-left: 10px;"/>
 </p>
-=======
-##Create sets to learn new words
 
-(screen/add_set.png) (screen/my_sets.png)
->>>>>>> 45f7247788d088078e3e1565032d9fb864beb9a4
