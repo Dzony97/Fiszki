@@ -56,3 +56,7 @@ To set up the project locally, follow these steps.
 
     Start the development server :
 ```python manage.py runserver```
+
+##Create sets to learn new words
+
+(screen/add_set.png) (screen/my_sets.png)
